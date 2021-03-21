@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+$grayish-blue: hsl(237, 18%, 59%);
+$soft-red: hsl(345, 95%, 68%);
+$white: hsl(0, 0%, 100%);
+$dark-saturated-blue: hsl(236, 21%, 26%);
+$darker-saturated-blue: hsl(240, 21%, 22%);
+$medium-saturated-blue: hsl(266, 19%, 15%);
+$very-dark-blue: hsl(235, 16%, 14%);
+$mostly-black-blue: hsl(234, 17%, 12%);
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 14px;
+    color: $white;
+    width: 100vw;
+    height: 100vh;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(
+        to bottom,
+        $very-dark-blue,
+        $medium-saturated-blue
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.app {
+    width: 100vw;
+    margin: 9rem 0 0 0;
+    text-align: center;
+    z-index: 1000;
+    h3 {
+        width: 90vw;
+        font-size: 1.2rem;
+        margin: 0 auto 3rem auto;
+    }
+    .countdown-container {
+        width: 90vw;
+        max-width: 690px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        .countdown-item {
+            position: relative;
+            .upper-box {
+                width: 70px;
+                height: 35px;
+                border-radius: 5px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+                background-color: $darker-saturated-blue;
+            }
+            span:first-of-type {
+                color: $soft-red;
+                font-size: 2.4rem;
+                letter-spacing: 0;
+                font-variant-numeric: tabular-nums;
+                position: absolute;
+                top: 36%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .lower-box {
+                width: 70px;
+                height: 33px;
+                margin-bottom: 0.5rem;
+                border-radius: 5px;
+                background-color: $dark-saturated-blue;
+                box-shadow: 0 5px 0 0 $mostly-black-blue;
+            }
+            span:last-of-type {
+                color: $grayish-blue;
+                letter-spacing: 3px;
+                font-size: 0.43rem;
+            }
+        }
+    }
+}
+.background-hills {
+    width: 100vw;
+    height: 180px;
+    position: absolute;
+    bottom: 0;
+    background: url(../images/pattern-hills.svg);
+    background-size: 300vw 180px;
+    background-position: -40rem;
+    background-repeat: no-repeat;
+}
+.background-stars {
+    width: 100vw;
+    height: calc(100vh - 200px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../images/bg-stars.svg);
+    background-size: cover;
+}
+footer {
+    position: absolute;
+    bottom: 3rem;
+    z-index: 1000;
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        li a {
+            padding: 0 0.8rem;
+            font-size: 1.7rem;
+            color: $grayish-blue;
+            &:hover {
+                color: $soft-red;
+            }
+        }
+    }
+}
+.attribution {
+    z-index: 1000;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0px;
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 1rem;
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+@media (min-width: 768px) {
+    .app {
+        h3 {
+            font-size: 2rem;
+            margin: 0 auto 7rem auto;
+        }
+        .countdown-container {
+            .countdown-item {
+                position: relative;
+                .upper-box {
+                    width: 140px;
+                    height: 70px;
+                }
+                span:first-of-type {
+                    font-size: 4.5rem;
+                    top: 38%;
+                    left: 50%;
+                }
+                .lower-box {
+                    width: 140px;
+                    height: 70px;
+                    margin-bottom: 1.5rem;
+                    box-shadow: 0 10px 0 0 $mostly-black-blue;
+                }
+                span:last-of-type {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+    .background-hills {
+        background-size: cover;
+        background-position: center;
+    }
+    footer {
+        bottom: 4rem;
+    }
+}
+@media (min-width: 1440px) {
+    .background-stars {
+        height: calc(100vh - 220px);
+    }
+    .background-hills {
+        height: 200px;
+    }
+}
+@media (min-width: 1920px) {
+    .background-stars {
+        height: calc(100vh - 260px);
+    }
+    .background-hills {
+        height: 260px;
+    }
+}
